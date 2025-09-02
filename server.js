@@ -25,3 +25,11 @@ app.use(cors()); // << เพิ่มบรรทัดนี้: ใช้ cor
 app.get('/api/data', (req, res) => {
     res.json({ message: 'This data is open for everyone!' });
 });
+
+//... (ส่วนบนเหมือนเดิม)
+const helmet = require('helmet'); // << Import helmet
+
+//...
+app.use(helmet()); // << เพิ่มบรรทัดนี้: ใส่เกราะป้องกัน!
+app.use(cors());
+//...
