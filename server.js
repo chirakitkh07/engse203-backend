@@ -13,3 +13,15 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 ${APP_NAME} is running on http://localhost:${PORT}`);
 });
+//... (ส่วนบนเหมือนเดิม)
+
+const cors = require('cors'); // << Import cors
+require('dotenv').config();
+
+app.use(cors()); // << เพิ่มบรรทัดนี้: ใช้ cors กับทุก request
+//... (ส่วนที่เหลือ)
+
+// เพิ่ม Route ใหม่สำหรับทดสอบ
+app.get('/api/data', (req, res) => {
+    res.json({ message: 'This data is open for everyone!' });
+});
